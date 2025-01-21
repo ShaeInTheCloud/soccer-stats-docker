@@ -6,7 +6,7 @@ Part of the 30 Days DevOps Challenge - Week 2: Containers & Microservices. This 
 ## Technologies Used
 - Docker
 - Python/FastAPI
-- Football API
+- Soccer API
 - pytest for testing
 
 ## Project Structure

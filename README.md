@@ -3,19 +3,6 @@
 ## Project Overview
 Part of the 30 Days DevOps Challenge - Week 2: Containers & Microservices. This project implements a containerized soccer statistics application using Docker, Python, and the Football API.
 
-## Architecture
-```mermaid
-flowchart LR
-    API[Football API] -->|Match Data| DC[Docker Container]
-    
-    subgraph Docker Container
-        App[Python App]
-        Config[Config Files]
-        Cache[Data Cache]
-    end
-    
-    DC -->|Process| Stats[Stats Processing]
-    Stats -->|Store| Results[(Results Storage)]
 Technologies Used
 
 Docker

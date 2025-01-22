@@ -16,17 +16,15 @@ flowchart LR
     
     DC -->|Process| Stats[Stats Processing]
     Stats -->|Store| Results[(Results Storage)]
-```
+Technologies Used
 
-## Technologies Used
-- Docker
-- Python/FastAPI
-- Soccer API (api-football-v1.p.rapidapi.com)
-- pytest for testing
+Docker
+Python/FastAPI
+Soccer API (api-football-v1.p.rapidapi.com)
+pytest for testing
 
-## Project Structure
-```bash
-soccer-stats-docker/
+Project Structure
+bashCopysoccer-stats-docker/
 ├── src/
 │   ├── __init__.py
 │   └── soccer_stats.py
@@ -35,56 +33,51 @@ soccer-stats-docker/
 ├── Dockerfile
 ├── requirements.txt
 └── .env
-```
+Setup Instructions
 
-## Setup Instructions
+Clone the repository:
 
-1. Clone the repository:
-```bash
-git clone <your-repo-url>
+bashCopygit clone <your-repo-url>
 cd soccer-stats-docker
-```
 
-2. Create a `.env` file with your API key:
-```bash
-RAPID_API_KEY=your_api_key_here
-```
+Create a .env file with your API key:
 
-3. Build the Docker image:
-```bash
-docker build -t soccer-stats .
-```
+bashCopyRAPID_API_KEY=your_api_key_here
 
-4. Run the container:
-```bash
-docker run -p 8000:8000 --env-file .env soccer-stats
-```
+Build the Docker image:
 
-## API Endpoints
-- `/` - Welcome message and available endpoints
-- `/health` - Health check endpoint
-- `/player/{player_id}` - Get player statistics
-- `/topscorers/{league_id}` - Get top scorers for a league (default: Premier League)
+bashCopydocker build -t soccer-stats .
 
-## Debugging Tips
+Run the container:
 
-### Common Issues and Solutions
+bashCopydocker run -p 8000:8000 --env-file .env soccer-stats
+API Endpoints
 
-1. Docker Permission Issues
-```bash
-# If you get permission denied errors:
+/ - Welcome message and available endpoints
+/health - Health check endpoint
+/player/{player_id} - Get player statistics
+/topscorers/{league_id} - Get top scorers for a league (default: Premier League)
+
+Debugging Tips
+Common Issues and Solutions
+
+Docker Permission Issues
+
+bashCopy# If you get permission denied errors:
 sudo usermod -aG docker $USER
 newgrp docker
-```
 
-2. API Key Issues
-- Ensure your RAPID_API_KEY is correctly set in .env
-- Verify the API key is valid at RapidAPI
-- Check if the key is being properly passed to the container
+API Key Issues
 
-3. Container Access Issues
-```bash
-# Check if container is running
+
+Ensure your RAPID_API_KEY is correctly set in .env
+Verify the API key is valid at RapidAPI
+Check if the key is being properly passed to the container
+
+
+Container Access Issues
+
+bashCopy# Check if container is running
 docker ps
 
 # View container logs
@@ -92,14 +85,9 @@ docker logs <container-id>
 
 # Access container shell
 docker exec -it <container-id> /bin/bash
-```
-
-## Resource Cleanup
-
+Resource Cleanup
 Clean up Docker resources when you're done:
-
-```bash
-# Stop the container
+bashCopy# Stop the container
 docker stop $(docker ps -q --filter ancestor=soccer-stats)
 
 # Remove the container
@@ -110,10 +98,7 @@ docker rmi soccer-stats
 
 # Remove all unused containers, networks, images (use with caution)
 docker system prune
-```
-
-## Contributing
+Contributing
 Feel free to fork this project and submit pull requests. For major changes, please open an issue first to discuss what you would like to change.
-
-## License
-[MIT](https://choosealicense.com/licenses/mit/)
+License
+MIT
